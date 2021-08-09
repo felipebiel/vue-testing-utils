@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-row flex-wrap content-center space-y-6">
+    <div class="flex flex-row flex-wrap content-center space-y-6 teste">
         <h1 :class="{ active: activeTitle }" class="text-center text-3xl w-full">{{ msg }}</h1>
         <button @click="changeActive()" class="bg-blue-600 text-white rounded-sm py-3 px-5 m-auto shadow">
             Tornar titulo atívo
