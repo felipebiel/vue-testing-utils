@@ -13,12 +13,22 @@ export default {
     components: {
         FormRegistrer,
     },
+    data() {
+        return {
+            userChecked: false,
+        };
+    },
     async created() {
-        await this.checkUser();
+        try {
+            await this.checkUser();
+            this.userChecked = true;
+        } catch (error) {
+            console.error(error);
+        }
     },
     methods: {
         createUserStore(form) {
-            // console.log(form);
+            console.log(form);
         },
         async checkUser() {
             return await new Promise((resolve) => setTimeout(resolve({ status: 200 }), 1000));

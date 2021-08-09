@@ -35,4 +35,9 @@ describe('Testando FormRegistrer.vue', () => {
         const { status } = await wrapper.vm.checkUser();
         expect(status).toEqual(200);
     });
+
+    it('Testando se o após retorno da função checkUser a data que checa o user muda', async () => {
+        await wrapper.vm.checkUser();
+        expect(wrapper.vm.$data.userChecked).toBeTruthy();
+    });
 });
