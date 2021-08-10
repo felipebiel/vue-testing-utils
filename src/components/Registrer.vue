@@ -8,6 +8,7 @@
 
 <script>
 import FormRegistrer from './FormRegistrer.vue';
+import { mapActions } from 'vuex';
 
 export default {
     components: {
@@ -27,8 +28,9 @@ export default {
         }
     },
     methods: {
+        ...mapActions(['storeUser']),
         createUserStore(form) {
-            console.log(form);
+            this.storeUser(form);
         },
         async checkUser() {
             return await new Promise((resolve) => setTimeout(resolve({ status: 200 }), 1000));
