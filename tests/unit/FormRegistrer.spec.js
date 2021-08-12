@@ -5,19 +5,27 @@ import Vue from 'vue';
 import Vuelidate from 'vuelidate';
 Vue.use(Vuelidate);
 
-describe('Testando FormRegistrer.vue', () => {
+describe('FormRegistrer.vue', () => {
     let wrapper;
+
+    const dataFull = {
+        name: 'Felipe Biel',
+        email: 'email@email.com',
+        termos: true,
+    };
+
+    const dataInit = {
+        name: '',
+        email: '',
+        termos: true,
+    };
+
     beforeEach(() => {
         wrapper = shallowMount(FormRegistrer);
     });
 
     const setDataWrapper = (wrapper) => {
-        const form = {
-            name: 'Felipe Biel',
-            email: 'email@email.com',
-            termos: true,
-        };
-        wrapper.setData({ form: form });
+        wrapper.setData({ form: dataFull });
     };
 
     it('Renderizando uma mensagem na props de msg', async () => {
@@ -28,8 +36,8 @@ describe('Testando FormRegistrer.vue', () => {
         expect(wrapper.text()).toMatch(msg);
     });
 
-    it('Testando se está ativo', () => {
-        wrapper.vm.changeActive();
+    it('Testando se está ativo', async () => {
+        await wrapper.find('#active-button').trigger('click');
         expect(wrapper.vm.$data.activeTitle).toBe(true);
     });
 
@@ -39,28 +47,29 @@ describe('Testando FormRegistrer.vue', () => {
     });
 
     it('Testando valores iniciais do form', () => {
-        const form = {
-            name: '',
-            email: '',
-            termos: true,
-        };
         const dataComponent = wrapper.vm.$data.form;
-        expect(dataComponent).toEqual(form);
+        expect(dataComponent).toEqual(dataInit);
     });
 
     it('Testando valores do form preenchidos', () => {
-        const form = {
+        const formLocal = {
             name: 'Felipe Biel',
             email: 'email@email.com',
             termos: false,
         };
-        wrapper.setData({ form: form });
+        wrapper.setData({ form: formLocal });
         const dataComponent = wrapper.vm.$data.form;
-        expect(dataComponent).toEqual(form);
+        expect(dataComponent).toEqual(formLocal);
     });
 
-    it('Testando se o vulidate está iniciado corretamente, $invalid = true', () => {
+    it('Testando se o vuelidate está iniciado corretamente, $invalid = true', () => {
         expect(wrapper.vm.$v.$invalid).toBeTruthy();
+    });
+
+    it('Testando o click do submit do formulário', async () => {
+        setDataWrapper(wrapper);
+        await wrapper.find('#submit-button').trigger('click');
+        expect(wrapper.emitted('create-user')).toBeTruthy();
     });
 
     it('Testando se o vuelidate está validando corretamente', async () => {
@@ -72,12 +81,6 @@ describe('Testando FormRegistrer.vue', () => {
         setDataWrapper(wrapper);
         await wrapper.vm.validateForm();
         expect(wrapper.vm.$v.$invalid).toBeFalsy();
-    });
-
-    it('Testando o click do submit do formulário', async () => {
-        setDataWrapper(wrapper);
-        await wrapper.find('#submit-button').trigger('click');
-        expect(wrapper.emitted('create-user')).toBeTruthy();
     });
 
     it('Testando se o evento vai ser emitido após envio', async () => {
