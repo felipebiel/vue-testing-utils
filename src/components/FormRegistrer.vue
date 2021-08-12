@@ -1,7 +1,11 @@
 <template>
     <div class="flex flex-row flex-wrap content-center space-y-6 teste">
         <h1 :class="{ active: activeTitle }" class="text-center text-3xl w-full">{{ msg }}</h1>
-        <button @click="changeActive()" class="bg-blue-600 text-white rounded-sm py-3 px-5 m-auto shadow">
+        <button
+            @click="changeActive()"
+            class="bg-blue-600 text-white rounded-sm py-3 px-5 m-auto shadow"
+            id="active-button"
+        >
             Tornar titulo atívo
         </button>
         <input type="text" class="w-full border border-gray-300 p-3 rounded-md mb-3" v-model="form.name" />
