@@ -8,13 +8,19 @@ const localVue = createLocalVue();
 
 localVue.use(Vuex);
 
-describe('Testando FormRegistrer.vue', () => {
+describe('FormRegistrer.vue', () => {
     let wrapper;
     let createUserStore;
     let checkUser;
 
     let actionsLocal;
     let store;
+
+    const dataFull = {
+        name: 'Felipe Biel',
+        email: 'email@email.com',
+        termos: true,
+    };
 
     beforeEach(() => {
         actionsLocal = {
@@ -34,12 +40,7 @@ describe('Testando FormRegistrer.vue', () => {
     });
 
     it('Testando se o emit chega na função createUserStore', async () => {
-        const form = {
-            name: 'Felipe Biel',
-            email: 'email@email.com',
-            termos: true,
-        };
-        await wrapper.findComponent(FormRegistrer).vm.$emit('create-user', form);
+        await wrapper.findComponent(FormRegistrer).vm.$emit('create-user', dataFull);
         expect(createUserStore).toHaveBeenCalled();
     });
 
@@ -58,12 +59,7 @@ describe('Testando FormRegistrer.vue', () => {
     });
 
     it('Testando se a storeUser do vuex foi chamada', async () => {
-        const form = {
-            name: 'Felipe Biel',
-            email: 'email@email.com',
-            termos: true,
-        };
-        await wrapper.findComponent(FormRegistrer).vm.$emit('create-user', form);
+        await wrapper.vm.createUserStore(dataFull);
         expect(actionsLocal.storeUser).toHaveBeenCalled();
     });
 });
