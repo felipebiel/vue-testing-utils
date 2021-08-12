@@ -74,6 +74,12 @@ describe('Testando FormRegistrer.vue', () => {
         expect(wrapper.vm.$v.$invalid).toBeFalsy();
     });
 
+    it('Testando o click do submit do formulário', async () => {
+        setDataWrapper(wrapper);
+        await wrapper.find('#submit-button').trigger('click');
+        expect(wrapper.emitted('create-user')).toBeTruthy();
+    });
+
     it('Testando se o evento vai ser emitido após envio', async () => {
         setDataWrapper(wrapper);
         await wrapper.vm.validateForm();

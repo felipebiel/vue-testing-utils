@@ -20,7 +20,11 @@
             <div class="text-red-500" v-if="$v.form.termos.$error && !$v.form.termos.sameAs">Aceite os termos</div>
         </div>
 
-        <button class="bg-blue-600 text-white rounded-sm py-3 px-5 m-auto w-full shadow" @click="validateForm">
+        <button
+            class="bg-blue-600 text-white rounded-sm py-3 px-5 m-auto w-full shadow"
+            id="submit-button"
+            @click="validateForm"
+        >
             Salvar
         </button>
     </div>

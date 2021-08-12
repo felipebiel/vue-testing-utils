@@ -3,7 +3,6 @@ import Vuex from 'vuex';
 
 import Registrer from '@/components/Registrer.vue';
 import FormRegistrer from '@/components/FormRegistrer.vue';
-import { mutations, actions } from '@/store';
 
 const localVue = createLocalVue();
 
@@ -66,33 +65,5 @@ describe('Testando FormRegistrer.vue', () => {
         };
         await wrapper.findComponent(FormRegistrer).vm.$emit('create-user', form);
         expect(actionsLocal.storeUser).toHaveBeenCalled();
-    });
-
-    it('Testando se o commit da mutation storeUser funciona', async () => {
-        // destructure assign `mutations`
-        const { SET_USER } = mutations;
-        const form = {
-            name: 'Felipe Biel',
-            email: 'email@email.com',
-            termos: true,
-        };
-        const state = {
-            user: {},
-        };
-        SET_USER(state, form);
-        expect(state.user).toEqual(form);
-    });
-
-    it('Testando se a função storeUser preenche o state de user', async () => {
-        const form = {
-            name: 'Felipe Biel',
-            email: 'email@email.com',
-            termos: true,
-        };
-
-        const commit = jest.fn();
-
-        actions.storeUser({ commit }, form);
-        expect(commit).toHaveBeenCalledWith('SET_USER', form);
     });
 });
