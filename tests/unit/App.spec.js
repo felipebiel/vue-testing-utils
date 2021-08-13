@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import App from '../../src/App.vue';
+import App from '@/App.vue';
 import Registrer from '@/components/Registrer.vue';
 
 describe('App.vue', () => {
@@ -11,9 +11,6 @@ describe('App.vue', () => {
     });
 
     it('Verificando se é uma instância vue', () => {
-        // depreciado
-        // expect(wrapper.isVueInstance()).toBe(true);
-        // substituto
         expect(wrapper.vm).toBeTruthy();
     });
 
