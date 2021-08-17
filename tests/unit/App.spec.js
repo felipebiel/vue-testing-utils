@@ -1,7 +1,11 @@
+/*  
+    mount: monta todo a arvore de componentes, com filhos netos etc
+    shallowMount: monta apenas o componente especificado
+*/
 import { shallowMount } from '@vue/test-utils';
 
 import App from '@/App.vue';
-import Registrer from '@/components/Registrer.vue';
+import SignUp from '@/components/SignUp.vue';
 
 describe('App.vue', () => {
     let wrapper;
@@ -10,11 +14,12 @@ describe('App.vue', () => {
         wrapper = shallowMount(App);
     });
 
+    /* Testando se é uma instancia do Vue */
     it('Verificando se é uma instância vue', () => {
         expect(wrapper.vm).toBeTruthy();
     });
-
-    it('Testando se tem o componente filho Registrer.vue', () => {
-        expect(wrapper.findComponent(Registrer).exists()).toBeTruthy();
+    /* Testando se existe o componente filho */
+    it('Testando se tem o componente filho SignUp .vue', () => {
+        expect(wrapper.findComponent(SignUp).exists()).toBeTruthy();
     });
 });

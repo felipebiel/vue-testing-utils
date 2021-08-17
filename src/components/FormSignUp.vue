@@ -38,7 +38,7 @@
 import { required, email, minLength, sameAs } from 'vuelidate/lib/validators';
 
 export default {
-    name: 'FormRegistrer',
+    name: 'FormSignUp',
     data() {
         return {
             activeTitle: false,

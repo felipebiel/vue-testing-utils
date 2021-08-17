@@ -1,16 +1,16 @@
 <template>
     <div id="app" class="bg-gray-100 h-screen w-100 py-5">
-        <Registrer />
+        <SignUp />
     </div>
 </template>
 
 <script>
-import Registrer from './components/Registrer.vue';
+import SignUp from './components/SignUp.vue';
 
 export default {
     name: 'App',
     components: {
-        Registrer,
+        SignUp,
     },
 };
 </script>

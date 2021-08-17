@@ -1,11 +1,14 @@
-import { shallowMount } from '@vue/test-utils';
-import FormRegistrer from '@/components/FormRegistrer.vue';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
+import FormSignUp from '@/components/FormSignUp.vue';
 
-import Vue from 'vue';
 import Vuelidate from 'vuelidate';
-Vue.use(Vuelidate);
 
-describe('FormRegistrer.vue', () => {
+/* Cria uma instancia do vue local, com seus states, dados etc */
+const localVue = createLocalVue();
+/* Diz que sua instancia local vai usar o vuex */
+localVue.use(Vuelidate);
+
+describe('FormSignUp.vue', () => {
     let wrapper;
 
     const dataFull = {
@@ -21,7 +24,7 @@ describe('FormRegistrer.vue', () => {
     };
 
     beforeEach(() => {
-        wrapper = shallowMount(FormRegistrer);
+        wrapper = shallowMount(FormSignUp, { localVue });
     });
 
     const setDataWrapper = (wrapper) => {

@@ -1,6 +1,6 @@
 import { mutations, actions } from '@/store';
 
-describe('Testando FormRegistrer.vue', () => {
+describe('Vuex de user', () => {
     let data;
 
     beforeEach(() => {
