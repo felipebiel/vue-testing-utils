@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  operator:
+    container_name: vue-test-jets
+    build:
+      context: .
+    volumes:
+      - .:/app
+    ports:
+      - "8081:8080"
+    command: >
+      bash -c "
+          yarn install
+          yarn serve
+          yarn global add @vue/cli"
+
+networks:
+  default:
+      name: pm_network
