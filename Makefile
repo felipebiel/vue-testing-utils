@@ -14,6 +14,9 @@ start:
 start_no_detach:
 	docker-compose -f docker-compose.yml up
 
+run-tests:
+	docker run -it vue-test_operator npm run test:unit
+
 stop:
 	docker-compose -f docker-compose.yml down --remove-orphans
 
