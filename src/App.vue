@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="bg-gray-100 h-screen w-100 py-5">
+    <div id="app">
         <SignUp />
     </div>
 </template>
@@ -14,3 +14,8 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+#app {
+    @apply bg-gray-100 h-screen w-full py-2 md:py-5 flex justify-center items-center;
+}
+</style>

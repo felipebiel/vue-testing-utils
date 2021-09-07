@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-5 flex justify-center">
-        <div class="rounded-md p-10 bg-white w-3/6 shadow-lg">
+    <div class="sing-up">
+        <div class="sing-up-card">
             <FormSignUp msg="Formulário de cadastro" @create-user="createUserStore" />
         </div>
     </div>
@@ -39,3 +39,12 @@ export default {
     },
 };
 </script>
+<style lang="scss" scoped>
+.sing-up {
+    @apply mx-4 sm:mx-0 flex justify-center;
+}
+
+.sing-up-card {
+    @apply rounded-md p-10 bg-white w-full sm:w-3/4 md:w-3/6 shadow-lg;
+}
+</style>
