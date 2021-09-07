@@ -4,7 +4,8 @@
 
 ![image](https://user-images.githubusercontent.com/54965084/132354614-30f25f3a-201a-4df2-859f-334754db3e39.png)
 
-Projeto criado para exemplificar o uso de testes unitários em Vue usando o Vue Test Utils com Jest. Publicação completa: [Linkedin](https://www.linkedin.com/feed/update/urn:li:activity:6834474964222038016/ "https://www.linkedin.com/feed/update/urn:li:activity:6834474964222038016/")
+Projeto criado para exemplificar o uso de testes unitários em Vue usando o Vue Test Utils com Jest. Publicação completa: [Linkedin](https://www.linkedin.com/feed/update/urn:li:activity:6834474964222038016/ 'https://www.linkedin.com/feed/update/urn:li:activity:6834474964222038016/')
+
 #
 
 # Rodando local com container
@@ -63,10 +64,4 @@ Rodar os testes unitários:
 
 ```
 npm run test:unit
-```
-
-### Lints and fixes files
-
-```
-npm run lint
 ```
