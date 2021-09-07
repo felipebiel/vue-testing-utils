@@ -40,6 +40,10 @@ Para rodar os testes dentro do container:
 make run-tests
 ```
 
+### Porta exposta pelo container: 8081
+
+#
+
 # Rodando local com npm
 
 Para rodar o ambiente de desenvolvimento, pela primeira vez execute:
